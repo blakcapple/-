@@ -24,7 +24,6 @@ class Solution:
         result.reverse()
         
         return result
-
         
         
 nums = [1,1,1,2,2,3]
