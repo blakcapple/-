@@ -6,7 +6,7 @@ graph = {
   '4' : ['8'],
   '8' : []
 }
-
+# bfs 队列
 visited = [] # List for visited nodes.
 queue = []     #Initialize a queue
 

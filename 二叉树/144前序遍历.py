@@ -9,6 +9,7 @@ class TreeNode:
 # 递归法        
 class Solution:
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        # 递归法 dfs 深度优先搜索
         result = []
         def traversal(node, result):
             if node == None:

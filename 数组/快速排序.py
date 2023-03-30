@@ -1,25 +1,25 @@
-# count = 0
-# def quick_sort(arr):
-#     global count
-#     if len(arr) <= 1:
-#         return arr
-#     else:
-#         pivot = arr[0]
-#         left = []
-#         right = []
-#         # 根据选取的pivot值把数组分成左右两部分
-#         for i in arr[1:]:
-#             count += 1
-#             if i < pivot:
-#                 left.append(i)
-#             else:
-#                 right.append(i)
-#         # 继续把左右两部分重复上面的步骤，最后返回拼接的数组
-#         return quick_sort(left) + [pivot] + quick_sort(right)
-# import numpy as np 
-# data = np.random.rand(10000)
-# sort_data = quick_sort(data)
-# print(count)
+count = 0
+def quick_sort(arr):
+    global count
+    if len(arr) <= 1:
+        return arr
+    else:
+        pivot = arr[0]
+        left = []
+        right = []
+        # 根据选取的pivot值把数组分成左右两部分
+        for i in arr[1:]:
+            count += 1
+            if i < pivot:
+                left.append(i)
+            else:
+                right.append(i)
+        # 继续把左右两部分重复上面的步骤，最后返回拼接的数组
+        return quick_sort(left) + [pivot] + quick_sort(right)
+import numpy as np 
+data = np.random.rand(10000)
+sort_data = quick_sort(data)
+print(count)
 
 # 链表快排复杂度nlogn
 
@@ -41,6 +41,7 @@ def sortList(head: ListNode):
     right = ListNode(0)
     l = left 
     r = right
+    # 分成两部分
     while cur:
         if cur.val < pivot.val:
             l.next = cur
@@ -51,6 +52,7 @@ def sortList(head: ListNode):
         cur = cur.next 
     l.next = None
     r.next = None
+    # 对左右部分都进行快排
     left = sortList(left.next)
     right = sortList(right.next)
     # 拼接
@@ -59,7 +61,7 @@ def sortList(head: ListNode):
     return left
     
 def append(left, pivot):
-    
+    # 拼接
     if not left:
         return pivot
     cur = left 

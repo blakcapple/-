@@ -14,9 +14,11 @@ class Solution:
         que = deque()
         que.append(root)
         results = []
+        # 核心思想 dfs
         while que:
             result = []
             size = len(que)
+            # 一层一层遍历
             for i in range(size):
                 node = que.popleft()
                 if not node:
