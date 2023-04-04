@@ -28,4 +28,29 @@ class Solution:
             elif val > root.val: root = root.right
             else: return root
         return None
+    
+
+class Solution:
+    def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+        self.result = None
+        def backtrack(node):
+            if not node:
+                return 
+            if node.val == val:
+                self.result = node
+            if node.val > val:
+                backtrack(node.left)
+            if node.val < val:
+                backtrack(node.right)
+        
+        backtrack(root)
+        return self.result
+    
+
+s = Solution()
+root = TreeNode(2)
+root.left = TreeNode(1)
+root.right = TreeNode(3)
+print(s.searchBST(root, 1))
+
         

@@ -20,5 +20,7 @@ class Solution:
         return res
     
 s = Solution()
-nums = [1,2,3]
+nums = [1, 2, 3, 4]
 print(s.subsets(nums))
+
+

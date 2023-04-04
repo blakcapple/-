@@ -7,25 +7,47 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+# class Solution:
+#     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+#         if not root:
+#             return []
+#         que = deque()
+#         que.append(root)
+#         results = []
+#         # 核心思想 bfs
+#         while que:
+#             result = []
+#             size = len(que)
+#             # 一层一层遍历
+#             for i in range(size):
+#                 node = que.popleft()
+#                 if not node:
+#                     break
+#                 result.append(node.val)
+#                 if node.left:que.append(node.left)
+#                 if node.right:que.append(node.right)
+#             results.append(result)
+#         return results
+    
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        if not root:
-            return []
-        que = deque()
-        que.append(root)
+        
+        queue = deque()
+        queue.append(root)
         results = []
-        # 核心思想 dfs
-        while que:
-            result = []
-            size = len(que)
-            # 一层一层遍历
+        
+        while queue:
+            path = []
+            size = len(queue)
             for i in range(size):
-                node = que.popleft()
+                node = queue.popleft()
                 if not node:
                     break
-                result.append(node.val)
-                if node.left:que.append(node.left)
-                if node.right:que.append(node.right)
-            results.append(result)
+                if not node:
+                    break
+                path.append(node.val)
+                if node.left: queue.append(node.left)
+                if node.right: queue.append(node.right)
+            results.append(path)
         return results
         

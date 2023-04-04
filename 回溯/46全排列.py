@@ -19,7 +19,7 @@ class Solution:
         used = [False] * len(nums)
         backtracking(used)
         return res
-        
+         
 s = Solution()
 nums = [1,2,3]
 print(s.permute(nums))
