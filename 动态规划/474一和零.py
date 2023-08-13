@@ -29,3 +29,22 @@ m = 2
 n = 2
 
 print(s.findMaxForm(strs, m,n))
+
+
+def fun(input, m, n):
+    
+    dp = [[0 for _ in range(n+1)] for _ in range(m+1)]
+    for item in input:
+        count_of_0 = 0
+        count_of_1 = 0
+        for s in item:
+            if s == '0':
+                count_of_0 += 1
+            if s == '1':
+                count_of_1 += 1
+        for i in range(m, 0, -1):
+            for j in range(n, 0, -1):
+                dp[i][j] = dp[i][j] + 1    
+    
+    
+    

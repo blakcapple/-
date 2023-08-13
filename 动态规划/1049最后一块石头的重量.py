@@ -23,3 +23,18 @@ class Solution:
 s = Solution()
 stones = [31,26,33,21,40]
 print(s.lastStoneWeightII(stones))
+
+def fun(stones):
+    total_weight = sum(stones)
+    target_weight = total_weight // 2
+    dp = [0 for _ in range(target_weight+1)]
+    for item in stones:
+        for size in range(target_weight, 0, -1):
+            if item > size:
+                continue
+            dp[size] = max(dp[size], dp[size - item]+item)
+            # print(dp)
+    return (total_weight - dp[-1]) - dp[-1]
+
+stones = [31,26,33,21,40]
+print(fun(stones))
